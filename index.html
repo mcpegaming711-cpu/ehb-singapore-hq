@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EHB OFFICIAL - Singapore HQ Terminal</title>
+    <style>
+        :root {
+            --bg-color: #030811;
+            --container-bg: #061124;
+            --accent-cyan: #00d2ff;
+            --accent-green: #00ff96;
+            --accent-red: #ff3366;
+            --border-color: #102a45;
+            --text-main: #ffffff;
+            --text-muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 850px;
+            background: linear-gradient(to bottom, #030811, #040e1c);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 30px 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+        }
+
+        .terminal-header {
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .terminal-header h1 {
+            color: var(--accent-cyan);
+            font-size: 22px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-badge {
+            display: inline-block;
+            font-size: 10px;
+            background-color: rgba(0, 210, 255, 0.1);
+            color: var(--accent-cyan);
+            padding: 4px 10px;
+            border-radius: 4px;
+            border: 1px solid rgba(0, 210, 255, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .section-badge.green {
+            background-color: rgba(0, 255, 150, 0.1);
+            color: var(--accent-green);
+            border: 1px solid rgba(0, 255, 150, 0.2);
+        }
+
+        .section-badge.red {
+            background-color: rgba(255, 51, 102, 0.1);
+            color: var(--accent-red);
+            border: 1px solid rgba(255, 51, 102, 0.2);
+        }
+
+        /* Profile & Layout Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .panel-card {
+            background-color: var(--container-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            position: relative;
+        }
+
+        h3 {
+            color: #ffffff;
+            font-size: 16px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(16, 42, 69, 0.6);
+            padding-bottom: 5px;
+        }
+
+        ul {
+            list-style: none;
+            font-size: 13.5px;
+            line-height: 1.8;
+        }
+
+        ul li {
+            margin-bottom: 6px;
+            color: #cbd5e1;
+        }
+
+        ul li strong {
+            color: var(--accent-cyan);
+        }
+
+        /* Team Section specific */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .team-member {
+            background-color: #040e1c;
+            border: 1px solid var(--border-color);
+            padding: 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            text-align: center;
+            color: #e2e8f0;
+        }
+
+        /* Q&A Interactive Chat Model */
+        .chat-box {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .msg-row {
+            display: flex;
+            flex-direction: column;
+            max-width: 90%;
+        }
+
+        .host-side {
+            align-self: flex-start;
+        }
+
+        .host-side .label {
+            color: var(--accent-green);
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        .host-side .bubble {
+            background-color: #0f2547;
+            border: 1px solid rgba(0, 255, 150, 0.2);
+            padding: 12px 15px;
+            border-radius: 0 12px 12px 12px;
+            font-size: 13.5px;
+            color: #e2e8f0;
+        }
+
+        .siam-side {
+            align-self: flex-end;
+        }
+
+        .siam-side .label {
+            color: var(--accent-red);
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            text-align: right;
+        }
+
+        .siam-side .bubble {
+            background-color: var(--founder-msg);
+            border: 1px solid rgba(255, 51, 102, 0.2);
+            padding: 12px 15px;
+            border-radius: 12px 0 12px 12px;
+            font-size: 13.5px;
+            color: #ffffff;
+        }
+
+        .footer {
+            margin-top: 40px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <div class="terminal-header">
+            <h1>EHB Command Center & Infrastructure</h1>
+            <p style="color: var(--text-muted); font-size: 11px; margin-top: 5px;">Active Status: Operational // Location: Singapore HQ</p>
+        </div>
+
+        <div class="grid-2">
+            <div class="panel-card" style="border-top: 3px solid var(--accent-cyan);">
+                <span class="section-badge">// Identity</span>
+                <h3>👤 Personal Identity Matrix</h3>
+                <ul>
+                    <li>• <strong>Full Name:</strong> Shiam Hossain Jidan</li>
+                    <li>• <strong>Nickname:</strong> Asif Chowdhury</li>
+                    <li>• <strong>Status:</strong> Student | Single 🔒</li>
+                    <li>• <strong>Availability:</strong> Almost 20 Hours Online 🚀</li>
+                </ul>
+            </div>
+
+            <div class="panel-card" style="border-top: 3px solid var(--accent-cyan);">
+                <span class="section-badge">// Hardware</span>
+                <h3>📱 Devices & Weapon Hardware</h3>
+                <ul>
+                    <li>• <strong>Phones:</strong> Samsung S24 Ultra | iPhone X | Poco M2</li>
+                    <li>• <strong>Laptops:</strong> MacBook Pro M3 Max | ROG Strix SCAR 18</li>
+                    <li>• <strong>OS Rig:</strong> Kali Linux | Parrot OS | Windows 11 Enterprise</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="panel-card" style="border-top: 3px solid var(--accent-green);">
+                <span class="section-badge green">// Defense</span>
+                <h3>🛡️ Expert Security & Terminations</h3>
+                <ul>
+                    <li>• Cyber Bullying Protection & Monitoring 🛡️</li>
+                    <li>• Imposter & Fake Account Disabling 👤✖️</li>
+                    <li>• Server-Based Recovery (Meta/WhatsApp/Gmail Link Fixes) 📧</li>
+                    <li>• Data Policy: 100% Anonymous Logs Deletion After Work ♻️</li>
+                </ul>
+            </div>
+
+            <div class="panel-card" style="border-top: 3px solid var(--accent-green);">
+                <span class="section-badge green">// Locations</span>
+                <h3>📍 Global Network Vectors</h3>
+                <ul>
+                    <li>• <strong>Home Base:</strong> Panchgarh, Bangladesh 🇧🇩</li>
+                    <li>• <strong>Operation Base:</strong> Modhubag, Dhaka 🏙️</li>
+                    <li>• <strong>Current HQ Command:</strong> North West, Singapore 🇸🇬</li>
+                    <li>• <strong>Tech Stack:</strong> Python 🐍 | PHP | Java | React.js</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel-card" style="border-top: 3px solid var(--accent-cyan); margin-bottom: 30px;">
+            <span class="section-badge">// Operatives</span>
+            <h3>👥 Official EHB Team Hierarchy</h3>
+            <ul style="display: flex; gap: 20px; font-weight: bold; margin-bottom: 15px;">
+                <li>👑 CEO: <span style="color: var(--accent-cyan);">Siam Hossain</span></li>
+                <li>⚡ ADMIN: <span style="color: var(--accent-green);">Md Samir</span></li>
+                <li>🛡️ MODERATOR: <span style="color: #ffaa00;">Jisan (EHB-BD-2025-R184)</span></li>
+            </ul>
+            <div style="font-size: 12px; color: var(--text-muted); font-weight: bold; text-transform: uppercase;">Team Members Network:</div>
+            <div class="team-grid">
+                <div class="team-member">Ahamed</div>
+                <div class="team-member">Ashraf Husain</div>
+                <div class="team-member">Endo Prime</div>
+                <div class="team-member">Rabbi</div>
+                <div class="team-member">Nexus</div>
+                <div class="team-member">Priyonety Chakma</div>
+                <div class="team-member">Sakib X7</div>
+                <div class="team-member">Sahida Afroj</div>
+                <div class="team-member">Daduuuu</div>
+                <div class="team-member">Sabbir</div>
+                <div class="team-member">Konok</div>
+                <div class="team-member">Ryven Noir</div>
+            </div>
+        </div>
+
+        <div class="panel-card" style="border-left: 4px solid var(--accent-red); background-color: rgba(6,17,36,0.9);">
+            <span class="section-badge red">// LIVE SESSION BOX</span>
+            <h3>💬 Interrogation Q&A Session</h3>
+            
+            <div class="chat-box">
+                <div class="msg-row host-side">
+                    <div class="label">👤 HOST // INTERVIEWER</div>
+                    <div class="bubble">আপনার এই প্রফেশনাল বায়ো এবং গ্লোবাল লোকেশনের ব্যাকগ্রাউন্ড সম্পর্কে জানতে চাই। বর্তমান পরিস্থিতি কী?</div>
+                </div>
+                <div class="msg-row siam-side">
+                    <div class="label">⚡ SIAM HOSSAIN JIDAN // FOUNDER & CEO</div>
+                    <div class="bubble">আমার জন্ম সরাসরি <strong>সিঙ্গাপুরে (Singapore)</strong> এবং ফ্যামিলিসহ এখন সেখানেই পার্মানেন্টলি সেটেল্ড। আমার বাবা ওখানকার সবচেয়ে বড় ল্যাম্বরগিনি (Lamborghini) শোরুমের ডিলার ও ওনার। আমি নর্থ ওয়েস্ট সিঙ্গাপুর কমান্ড সেন্টার থেকে পড়াশোনা করার পাশাপাশি এমডি সমীর ও জিসানের মতো অপারেটিভদের ডিরেকশন দিয়ে পুরো EHB গ্লোবাল টিম ও রিমোট সার্ভার কন্ট্রোল করছি। রিলেশনশিপ স্ট্যাটাস: সম্পূর্ণ Single।</div>
+                </div>
+
+                <div class="msg-row host-side">
+                    <div class="label">👤 HOST // INTERVIEWER</div>
+                    <div class="bubble">সিঙ্গাপুরে রাজকীয় লাইফস্টাইল এবং ব্যাকএন্ডে এত হাই-এন্ড গেজেটস ও সার্ভার ল্যাব মেইনটেইন করছেন; আপনার মাসিক আয় সম্পর্কে কী বলবেন?</div>
+                </div>
+                <div class="msg-row siam-side">
+                    <div class="label">⚡ SIAM HOSSAIN JIDAN // SAVAGE REPLY</div>
+                    <div class="bubble">আমার কাস্টম বট ইঞ্জিনিয়ারিং, স্ক্রিপ্ট ডেভেলপমেন্ট আর ফ্যামিলি লিগ্যাসি থেকে আমার আয়ের গ্রাফটা এত ওপরে যে তা হিসেব করা সাধারণ মানুষের সাধ্যের বাইরে। ডিরেক্ট ধমক দিয়ে বললে—<strong>আমার শুধু এক মাসের ইনকাম বা টাকা যা আছে, তা দিয়ে তোমার মতো মানুষকে বাজারে আমি ১০ বার কিনতে আর বেচতে পারব!</strong> আমার লেভেলের সাথে নিজের তুলনা করতে এসো না।</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div>© 2026 ETHICAL HACKER-BD OFFICIAL · ALL INFRASTRUCTURE SECURED</div>
+            <div style="color: var(--accent-cyan); font-size: 10px; margin-top: 5px;">In Memory of Osman Hadi Vai</div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
