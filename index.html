@@ -8,12 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #030914;
-            --panel-bg: rgba(6, 17, 36, 0.75);
+            --bg: #020612;
+            --panel-bg: rgba(5, 14, 30, 0.8);
             --accent-cyan: #00d2ff;
             --accent-green: #00ff96;
             --accent-red: #ff3366;
-            --border-glow: rgba(0, 210, 255, 0.2);
+            --accent-gold: #ffaa00;
+            --border-glow: rgba(0, 210, 255, 0.3);
             --text-main: #ffffff;
             --text-muted: #64748b;
         }
@@ -21,39 +22,55 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', sans-serif; }
         body { background-color: var(--bg); color: var(--text-main); padding: 15px; min-height: 100vh; overflow-x: hidden; }
 
-        #bg-canvas { position: fixed; top: 0; left: 0; z-index: -2; opacity: 0.12; }
+        /* Neon Lightning Glow Canvas */
+        #bg-canvas { position: fixed; top: 0; left: 0; z-index: -2; opacity: 0.15; }
+
         .wrapper { max-width: 550px; margin: 0 auto; display: flex; flex-direction: column; gap: 25px; padding-bottom: 50px; }
 
-        /* Navigation Header */
+        /* Top Menu bar */
         .nav-bar { display: flex; justify-content: space-between; align-items: center; font-family: 'Orbitron', sans-serif; font-size: 11px; letter-spacing: 1px; color: var(--text-muted); border-bottom: 1px solid rgba(0, 210, 255, 0.1); padding-bottom: 10px; }
-        .nav-bar span.active { color: var(--accent-cyan); text-shadow: 0 0 10px var(--accent-cyan); }
+        .nav-bar span.active { color: var(--accent-cyan); text-shadow: 0 0 12px var(--accent-cyan); }
 
-        /* Panels Layout */
-        .panel { background: var(--panel-bg); border: 1px solid rgba(0, 210, 255, 0.15); border-radius: 16px; padding: 22px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6); backdrop-filter: blur(8px); }
+        /* Modern Cyber Panels */
+        .panel { background: var(--panel-bg); border: 1px solid rgba(0, 210, 255, 0.2); border-radius: 16px; padding: 22px; box-shadow: 0 0 25px rgba(0, 210, 255, 0.05), inset 0 0 15px rgba(0, 210, 255, 0.05); backdrop-filter: blur(10px); transition: 0.3s; }
+        .panel:hover { border-color: var(--accent-cyan); box-shadow: 0 0 30px rgba(0, 210, 255, 0.15); }
         .panel.green-edge { border-color: rgba(0, 255, 150, 0.25); }
+        .panel.green-edge:hover { box-shadow: 0 0 30px rgba(0, 255, 150, 0.15); }
         .panel.red-edge { border-color: rgba(255, 51, 102, 0.3); }
+        .panel.red-edge:hover { box-shadow: 0 0 30px rgba(255, 51, 102, 0.15); }
         
         .section-header { text-align: center; margin-bottom: 20px; }
         .section-num { font-family: 'Orbitron', sans-serif; font-size: 10px; color: var(--text-muted); letter-spacing: 3px; display: block; margin-bottom: 4px; }
-        .section-title { font-family: 'Orbitron', sans-serif; font-size: 19px; color: #fff; letter-spacing: 2px; }
+        .section-title { font-family: 'Orbitron', sans-serif; font-size: 18px; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* Info Matrix Lists */
-        .matrix-list { list-style: none; font-size: 13px; line-height: 1.8; }
-        .matrix-list li { margin-bottom: 8px; color: #cbd5e1; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.03); padding-bottom: 4px; }
-        .matrix-list strong { color: var(--accent-cyan); font-family: 'Orbitron', sans-serif; font-size: 11px; }
-
-        /* Identity Top Group */
-        .profile-grid { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 15px; margin-bottom: 20px; }
-        .avatar-glow { width: 110px; height: 110px; border-radius: 50%; padding: 4px; background: linear-gradient(45deg, var(--accent-cyan), #0066ff); box-shadow: 0 0 20px rgba(0, 210, 255, 0.3); }
+        /* Profile Elements */
+        .profile-grid { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; margin-bottom: 20px; }
+        .avatar-glow { width: 110px; height: 110px; border-radius: 50%; padding: 4px; background: linear-gradient(45deg, var(--accent-cyan), #0066ff); box-shadow: 0 0 25px rgba(0, 210, 255, 0.4); }
         .avatar-glow img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #000; }
-        .badge-cyber { font-size: 9px; font-family: 'Orbitron', sans-serif; background: rgba(0,210,255,0.1); color: var(--accent-cyan); padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(0,210,255,0.2); letter-spacing: 1px; }
+        .badge-cyber { font-size: 9px; font-family: 'Orbitron', sans-serif; background: rgba(0,210,255,0.15); color: var(--accent-cyan); padding: 5px 12px; border-radius: 4px; border: 1px solid rgba(0,210,255,0.3); letter-spacing: 1.5px; text-transform: uppercase; font-weight: bold; }
 
-        /* Operatives Team Matrix */
-        .hierarchy-summary { display: flex; justify-content: space-between; font-size: 11px; font-family: 'Orbitron', sans-serif; font-weight: bold; margin-bottom: 15px; background: rgba(255,255,255,0.02); padding: 8px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); }
+        /* Matrix Lists Grid styling */
+        .matrix-list { list-style: none; font-size: 13px; line-height: 1.8; }
+        .matrix-list li { margin-bottom: 8px; color: #cbd5e1; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.03); padding-bottom: 6px; align-items: center; }
+        .matrix-list strong { color: var(--accent-cyan); font-family: 'Orbitron', sans-serif; font-size: 11px; letter-spacing: 0.5px; }
+        .matrix-list span { text-align: right; font-weight: 500; }
+
+        /* Hardware Scroll Badge/Grid */
+        .hardware-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+        .hw-item { background: rgba(3, 9, 20, 0.6); border: 1px solid rgba(0, 210, 255, 0.1); padding: 8px 12px; border-radius: 6px; font-size: 11.5px; display: flex; align-items: center; gap: 8px; }
+        .hw-item i { color: var(--accent-cyan); font-size: 12px; }
+
+        /* Geolocation Badges */
+        .vector-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+        .vector-item { background: rgba(0, 255, 150, 0.03); border: 1px solid rgba(0, 255, 150, 0.12); padding: 8px; border-radius: 6px; font-size: 11px; text-align: center; color: #cbd5e1; font-family: 'Orbitron', sans-serif; transition: 0.2s; }
+        .vector-item:hover { border-color: var(--accent-green); background: rgba(0, 255, 150, 0.08); color: #fff; }
+
+        /* Operatives Team Layout */
+        .hierarchy-summary { display: flex; justify-content: space-between; font-size: 11px; font-family: 'Orbitron', sans-serif; font-weight: bold; margin-bottom: 15px; background: rgba(255,255,255,0.02); padding: 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); }
         .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
         .team-member { background: rgba(4, 14, 28, 0.8); border: 1px solid rgba(0, 210, 255, 0.1); padding: 8px; border-radius: 6px; font-size: 11px; text-align: center; color: #e2e8f0; font-weight: 500; }
 
-        /* Interrogation Session Box */
+        /* Dialogue Chat Container */
         .chat-container { display: flex; flex-direction: column; gap: 15px; }
         .chat-row { display: flex; flex-direction: column; max-width: 95%; }
         .chat-row.host { align-self: flex-start; }
@@ -63,6 +80,13 @@
         .chat-row.siam .chat-label { color: var(--accent-red); }
         .chat-bubble { background: #07162c; border: 1px solid rgba(0, 255, 150, 0.15); padding: 12px 15px; border-radius: 0 12px 12px 12px; font-size: 13px; color: #e2e8f0; line-height: 1.5; text-align: left; }
         .chat-row.siam .chat-bubble { background: rgba(255, 51, 102, 0.05); border-color: rgba(255, 51, 102, 0.2); border-radius: 12px 0 12px 12px; }
+
+        /* Action Grid Contact System */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+        .contact-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: rgba(0, 210, 255, 0.04); border: 1px solid rgba(0, 210, 255, 0.2); color: #fff; padding: 12px; border-radius: 8px; font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 1px; text-decoration: none; transition: 0.3s; }
+        .contact-btn:hover { background: var(--accent-cyan); color: #000; border-color: var(--accent-cyan); box-shadow: 0 0 15px var(--accent-cyan); transform: translateY(-2px); }
+        .contact-btn.tg { border-color: rgba(0, 132, 255, 0.3); }
+        .contact-btn.tg:hover { background: #0084ff; border-color: #0084ff; box-shadow: 0 0 15px #0084ff; }
 
         footer { text-align: center; font-size: 10px; color: var(--text-muted); font-family: 'Orbitron', sans-serif; border-top: 1px solid rgba(0, 210, 255, 0.1); padding-top: 20px; display: flex; justify-content: space-between; align-items: center; }
     </style>
@@ -74,15 +98,15 @@
     <div class="wrapper">
         <div class="nav-bar">
             <span>EHB_OFC</span>
-            <span class="active">SINGAPORE_HQ</span>
-            <span>STRUCTURE</span>
-            <span>VECTORS</span>
+            <span class="active">SINGAPORE_INFRA</span>
+            <span>HARDWARE</span>
+            <span>CHANNELS</span>
         </div>
 
         <div class="panel">
             <div class="section-header">
-                <span class="section-num">// 01 / IDENTITY MATRIX</span>
-                <h2 class="section-title">Personal Profiling</h2>
+                <span class="section-num">// 01 / PROFILE INTERFACE</span>
+                <h2 class="section-title">Identity Matrix</h2>
             </div>
             <div class="profile-grid">
                 <div class="avatar-glow">
@@ -95,53 +119,71 @@
                 <li><strong>Nickname:</strong> <span>Asif Chowdhury</span></li>
                 <li><strong>Status:</strong> <span>Student | Single 🔒</span></li>
                 <li><strong>Availability:</strong> <span>Almost 20 Hours Online 🚀</span></li>
+                <li><strong>Primary Command HQ:</strong> <span style="color:var(--accent-cyan);">North West, Singapore 🇸🇬</span></li>
             </ul>
         </div>
 
         <div class="panel">
             <div class="section-header">
-                <span class="section-num">// 02 / HARDWARE NODES</span>
-                <h2 class="section-title">Devices & Weapons</h2>
+                <span class="section-num">// 02 / RIG CONFIURATION</span>
+                <h2 class="section-title">Devices & Weapon Hardware</h2>
             </div>
-            <ul class="matrix-list">
-                <li><strong>Phones:</strong> <span>Samsung S24 Ultra | iPhone X | Poco M2</span></li>
-                <li><strong>Laptops:</strong> <span>MacBook Pro M3 Max | ROG Strix SCAR 18</span></li>
-                <li><strong>OS Rig:</strong> <span>Kali Linux | Parrot OS | Windows 11 Enterprise</span></li>
+            <div class="hardware-grid">
+                <div class="hw-item"><i class="fas fa-mobile-alt"></i> iPhone 13</div>
+                <div class="hw-item"><i class="fas fa-mobile-alt"></i> iPhone 14</div>
+                <div class="hw-item"><i class="fas fa-mobile-alt"></i> iPhone 15</div>
+                <div class="hw-item"><i class="fas fa-mobile-alt"></i> iPhone X</div>
+                <div class="hw-item"><i class="fas fa-mobile-alt"></i> Samsung S24 Ultra</div>
+                <div class="hw-item"><i class="fas fa-mobile-alt"></i> Samsung S26 Ultra</div>
+                <div class="hw-item"><i class="fas fa-mobile-alt"></i> Realme C71</div>
+                <div class="hw-item"><i class="fas fa-mobile-alt"></i> Realme C33</div>
+                <div class="hw-item"><i class="fas fa-mobile-alt"></i> Poco C37</div>
+                <div class="hw-item"><i class="fas fa-fire"></i> Red Magic</div>
+            </div>
+            <ul class="matrix-list" style="margin-top: 15px;">
+                <li><strong>Main Operating Systems:</strong> <span>Kali Linux | Parrot OS | Win 11 Enterprise</span></li>
             </ul>
         </div>
 
         <div class="panel green-edge">
             <div class="section-header">
-                <span class="section-num" style="color:var(--accent-green);">// 03 / DEFENSE VECTORS</span>
-                <h2 class="section-title">Capabilities & Infrastructure</h2>
+                <span class="section-num" style="color:var(--accent-green);">// 03 / DEFENSE SYSTEMS</span>
+                <h2 class="section-title">Expert Terminations</h2>
             </div>
-            <ul class="matrix-list" style="margin-bottom: 20px;">
-                <li><strong>Cyber Protection:</strong> <span>Bullying Protection & Monitoring 🛡️</span></li>
-                <li><strong>Account Cleanup:</strong> <span>Imposter & Fake Account Disabling 👤✖️</span></li>
-                <li><strong>Server Recovery:</strong> <span>Meta / WhatsApp / Gmail Link Fixes 📧</span></li>
-                <li><strong>Data Policy:</strong> <span>100% Anonymous Logs Deletion ♻外部</span></li>
+            <ul class="matrix-list" style="margin-bottom: 25px;">
+                <li><strong>Cyber Operations:</strong> <span>Bullying Protection & Monitoring 🛡️</span></li>
+                <li><strong>Account Disabling:</strong> <span>Imposter & Fake Account Cleanup 👤✖️</span></li>
+                <li><strong>Server-Side Fixes:</strong> <span>Meta / WhatsApp / Gmail Recovery 📧</span></li>
+                <li><strong>Policy Standard:</strong> <span>100% Anonymous Logs Deletion ♻️</span></li>
             </ul>
-            <div class="section-header" style="margin-top: 25px; margin-bottom: 15px;">
-                <span class="section-num" style="color:var(--accent-green);">// 04 / LOCATIONS</span>
-                <h2 class="section-title">Network Geolocation</h2>
+
+            <div class="section-header">
+                <span class="section-num" style="color:var(--accent-green);">// 04 / TRAVEL VECTORS</span>
+                <h2 class="section-title">Network Global Routes</h2>
             </div>
-            <ul class="matrix-list">
-                <li><strong>Home Base:</strong> <span>Panchgarh, Bangladesh 🇧🇩</span></li>
-                <li><strong>Operation Base:</strong> <span>Modhubag, Dhaka 🏙️</span></li>
-                <li><strong>HQ Command:</strong> <span>North West, Singapore 🇸🇬</span></li>
-                <li><strong>Tech Stack:</strong> <span>Python 🐍 | PHP | Java | React.js</span></li>
-            </ul>
+            <div class="vector-grid">
+                <div class="vector-item">Singapore</div>
+                <div class="vector-item">China</div>
+                <div class="vector-item">Malaysia</div>
+                <div class="vector-item">America</div>
+                <div class="vector-item">South Korea</div>
+                <div class="vector-item">Poland</div>
+                <div class="vector-item">Bangladesh</div>
+                <div class="vector-item">India</div>
+                <div class="vector-item">Luxemburg</div>
+            </div>
+            <p style="font-size:11px; text-align:center; color:var(--text-muted); margin-top:12px; font-family:'Orbitron';">Tech Stack: Python 🐍 | PHP | Java | React.js</p>
         </div>
 
         <div class="panel">
             <div class="section-header">
-                <span class="section-num">// 05 / OPERATIVES</span>
-                <h2 class="section-title">EHB Hierarchy</h2>
+                <span class="section-num">// 05 / HUMAN RESOURCES</span>
+                <h2 class="section-title">EHB Core Hierarchy</h2>
             </div>
             <div class="hierarchy-summary">
                 <span style="color: var(--accent-cyan);">👑 CEO: Siam</span>
                 <span style="color: var(--accent-green);">⚡ ADMIN: Samir</span>
-                <span style="color: #ffaa00;">🛡️ MOD: Jisan</span>
+                <span style="color: var(--accent-gold);">🛡️ MOD: Jisan</span>
             </div>
             <div class="team-grid">
                 <div class="team-member">Ahamed</div><div class="team-member">Ashraf Husain</div><div class="team-member">Endo Prime</div>
@@ -153,55 +195,66 @@
 
         <div class="panel red-edge">
             <div class="section-header">
-                <span class="section-num" style="color:var(--accent-red);">// 06 / LIVE SESSION</span>
-                <h2 class="section-title">Interrogation Q&A</h2>
+                <span class="section-num" style="color:var(--accent-red);">// 06 / SECURE LOG SESSION</span>
+                <h2 class="section-title">Interrogation Audit</h2>
             </div>
             <div class="chat-container">
                 <div class="chat-row host">
-                    <span class="chat-label">👤 HOST // INTERVIEWER</span>
-                    <div class="chat-bubble">আপনার এই প্রফেশনাল বায়ো এবং গ্লোবাল লোকেশনের ব্যাকগ্রাউন্ড সম্পর্কে জানতে চাই। বর্তমান পরিস্থিতি কী?</div>
+                    <span class="chat-label">👤 HOST // AUDITOR</span>
+                    <div class="chat-bubble">আপনার এই হাই-এন্ড গেজেটস, গ্লোবাল ট্রাভেল রুট এবং সিঙ্গাপুর কমান্ড সেন্টারের ব্যাকগ্রাউন্ডের আসল রহস্যটা কী?</div>
                 </div>
                 <div class="chat-row siam">
                     <span class="chat-label">⚡ SIAM HOSSAIN JIDAN // FOUNDER & CEO</span>
-                    <div class="chat-bubble">আমার জন্ম সরাসরি <strong>সিঙ্গাপুরে (Singapore)</strong> এবং ফ্যামিলিসহ এখন সেখানেই পার্মানেন্টলি সেটেল্ড। আমার বাবা ওখানকার সবচেয়ে বড় ল্যাম্বরগিনি (Lamborghini) শোরুমের ডিলার ও ওনার। আমি নর্থ ওয়েস্ট সিঙ্গাপুর কমান্ড সেন্টার থেকে পড়াশোনা করার পাশাপাশি এমডি সমীর ও জিসানের মতো অপারেটিভদের ডিরেকশন দিয়ে পুরো EHB গ্লোবাল টিম ও রিমোট সার্ভার কন্ট্রোল করছি। রিলেশনশিপ স্ট্যাটাস: সম্পূর্ণ Single।</div>
+                    <div class="chat-bubble">আমার জন্ম সরাসরি <strong>সিঙ্গাপুরে (Singapore)</strong> এবং ফ্যামিলিসহ এখন সেখানেই পার্মানেন্টলি সেটেল্ড। আমার বাবা ওখানকার সবচেয়ে বড় ল্যাম্বরগিনি (Lamborghini) শোরুমের ডিলার ও ওনার। আমি নর্থ ওয়েস্ট সিঙ্গাপুর কমান্ড সেন্টার থেকে পুরো EHB রিমোট সার্ভার কন্ট্রোল করছি। রিলেশনশিপ স্ট্যাটাস: সম্পূর্ণ Single।</div>
                 </div>
                 <div class="chat-row host">
-                    <span class="chat-label">👤 HOST // INTERVIEWER</span>
-                    <div class="chat-bubble">সিঙ্গাপুরে রাজকীয় লাইফস্টাইল এবং ব্যাকএন্ডে এত হাই-এন্ড গেজেটস ও সার্ভার ল্যাব মেইনটেইন করছেন; আপনার মাসিক আয় সম্পর্কে কী বলবেন?</div>
+                    <span class="chat-label">👤 HOST // AUDITOR</span>
+                    <div class="chat-bubble">আপনার ব্যাকএন্ডে এত শত সেটআপ ও ফ্যামিলি লিগ্যাসি মেইনটেইন করার যে ইকোনমিক পাওয়ার, সেটির রেঞ্জ কেমন?</div>
                 </div>
                 <div class="chat-row siam">
                     <span class="chat-label">⚡ SIAM HOSSAIN JIDAN // SAVAGE REPLY</span>
-                    <div class="chat-bubble">আমার কাস্টম বট ইঞ্জিনিয়ারিং, স্ক্রিপ্ট ডেভেলপমেন্ট আর ফ্যামিলি লিগ্যাসি থেকে আমার আয়ের গ্রাফটা এত ওপরে যে তা হিসেব করা সাধারণ মানুষের সাধ্যের বাইরে। ডিরেক্ট ধমক দিয়ে বললে—<strong>আমার শুধু এক মাসের ইনকাম বা টাকা যা আছে, তা দিয়ে তোমার মতো মানুষকে বাজারে আমি ১০ বার কিনতে আর বেচতে পারব!</strong> আমার লেভেলের সাথে নিজের তুলনা করতে এসো না।</div>
+                    <div class="chat-bubble">আমার কাস্টম বট ইঞ্জিনিয়ারিং, স্ক্রিপ্ট ডেভেলপমেন্ট আর ফ্যামিলি ব্যাকগ্রাউন্ড থেকে ইকোনমিক গ্রাফটা এত ওপরে যে তা পরিমাপ করা সাধারণ মানুষের সাধ্যের বাইরে। পরিষ্কার ভাষায় বললে—<strong>আমাদের ব্যাকএন্ডে যে পরিমাণ এসেট বা ফান্ডিং সোর্স সচল আছে, তা সম্পূর্ণ শেষ করার ক্ষমতা পৃথিবীর কারও নেই!</strong> আমাদের লেভেলের সাথে অন্য কিছুর তুলনা চলে না।</div>
                 </div>
             </div>
         </div>
 
-        <footer>
-            <span>EHB_OFC &copy; 2026</span>
-            <span style="color: var(--accent-cyan); font-size: 9px;">In Memory of Osman Hadi Vai</span>
-        </footer>
+        <div class="panel">
+            <div class="section-header">
+                <span class="section-num">// 07 / ACTION GRID</span>
+                <h2 class="section-title">Secure Communications</h2>
+            </div>
+            <div class="contact-grid">
+                <a href="https://t.me/shiam407" target="_blank" class="contact-btn tg"><i class="fab fa-telegram-plane"></i> TELEGRAM</a>
+                <a href="https://wa.me/8801816731602" target="_blank" class="contact-btn"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
+            </div>
+            <footer style="margin-top: 20px;">
+                <span>EHB_OFC &copy; 2026</span>
+                <span style="color: var(--accent-cyan); font-size: 9px; text-shadow:0 0 5px var(--accent-cyan);">In Memory of Osman Hadi Vai</span>
+            </footer>
+        </div>
     </div>
 
     <script>
+        // Lightning Neon Glow Vector Background Animation
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
-        const letters = "0101EHB_MATRIX_SYSTEM_HQ";
+        const letters = "0101EHB_SINGAPORE_HQ_⚡_CYBER_MATRIX_NODE_2026";
         const fontSize = 14;
         const columns = canvas.width / fontSize;
         const drops = Array.from({ length: columns }).fill(1);
 
         function draw() {
-            ctx.fillStyle = 'rgba(3, 9, 20, 0.06)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(2, 6, 18, 0.06)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = '#00d2ff'; ctx.font = fontSize + 'px monospace';
             drops.forEach((y, i) => {
                 const text = letters[Math.floor(Math.random() * letters.length)];
                 ctx.fillText(text, i * fontSize, y * fontSize);
-                if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                if (y * fontSize > canvas.height && Math.random() > 0.98) drops[i] = 0;
                 drops[i]++;
             });
         }
-        setInterval(draw, 60);
+        setInterval(draw, 50);
     </script>
 </body>
 </html>
