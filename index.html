@@ -41,7 +41,7 @@
         .audio-ctrl-btn { background: transparent; border: 1px solid var(--accent-cyan); color: var(--accent-cyan); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; box-shadow: 0 0 8px rgba(0, 210, 255, 0.2); }
         .audio-ctrl-btn:hover { background: var(--accent-cyan); color: #000; box-shadow: 0 0 15px var(--accent-cyan); }
 
-        /* 👑 🚀 SCROLL REVEAL ANIMATION SYSTEM CSS 👑 🚀 */
+        /* Scroll Reveal Animation Panel Grid */
         .panel { 
             background: var(--panel-bg); 
             border: 1px solid rgba(0, 210, 255, 0.2); 
@@ -49,21 +49,13 @@
             padding: 22px; 
             box-shadow: 0 0 25px rgba(0, 210, 255, 0.05), inset 0 0 15px rgba(0, 210, 255, 0.05); 
             backdrop-filter: blur(10px); 
-            
-            /* প্রাথমিক অবস্থা: নিচে থাকবে এবং অদৃশ্য থাকবে */
             opacity: 0;
             transform: translateY(40px);
             transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
             visibility: hidden;
         }
 
-        /* যখন স্ক্রল করে নিচে যাবে, তখন এই ক্লাসটি যুক্ত হবে */
-        .panel.reveal-active { 
-            opacity: 1;
-            transform: translateY(0);
-            visibility: visible;
-        }
-
+        .panel.reveal-active { opacity: 1; transform: translateY(0); visibility: visible; }
         .panel:hover { border-color: var(--accent-cyan); box-shadow: 0 0 30px rgba(0, 210, 255, 0.15); }
         .panel.green-edge { border-color: rgba(0, 255, 150, 0.25); }
         .panel.green-edge:hover { box-shadow: 0 0 30px rgba(0, 255, 150, 0.15); }
@@ -89,7 +81,6 @@
         .matrix-list { list-style: none; font-size: 13px; line-height: 1.8; }
         .matrix-list li { margin-bottom: 8px; color: #cbd5e1; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.03); padding-bottom: 6px; align-items: center; }
         .matrix-list strong { color: var(--accent-cyan); font-family: 'Orbitron', sans-serif; font-size: 11px; letter-spacing: 0.5px; }
-        .matrix-list span { text-align: right; font-weight: 500; }
 
         /* Hardware Scroll Badge/Grid */
         .hardware-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
@@ -101,10 +92,21 @@
         .vector-item { background: rgba(0, 255, 150, 0.03); border: 1px solid rgba(0, 255, 150, 0.12); padding: 8px; border-radius: 6px; font-size: 11px; text-align: center; color: #cbd5e1; font-family: 'Orbitron', sans-serif; transition: 0.2s; }
         .vector-item:hover { border-color: var(--accent-green); background: rgba(0, 255, 150, 0.08); color: #fff; text-shadow: 0 0 5px var(--accent-green); }
 
-        /* Operatives Team Layout */
-        .hierarchy-summary { display: flex; justify-content: space-between; font-size: 11px; font-family: 'Orbitron', sans-serif; font-weight: bold; margin-bottom: 15px; background: rgba(255,255,255,0.02); padding: 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); }
-        .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-        .team-member { background: rgba(4, 14, 28, 0.8); border: 1px solid rgba(0, 210, 255, 0.1); padding: 8px; border-radius: 6px; font-size: 11px; text-align: center; color: #e2e8f0; font-weight: 500; }
+        /* 👥 HIGH-END MEMBERS EXPANDED SECTION 👥 */
+        .hierarchy-summary { display: flex; justify-content: space-between; font-size: 11px; font-family: 'Orbitron', sans-serif; font-weight: bold; margin-bottom: 20px; background: rgba(255,255,255,0.02); padding: 10px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.05); }
+        
+        .member-panel-box { display: flex; flex-direction: column; gap: 15px; }
+        .member-card-v2 { display: flex; align-items: center; justify-content: space-between; background: rgba(3, 9, 20, 0.6); border: 1px solid rgba(0, 210, 255, 0.15); border-radius: 12px; padding: 14px; transition: 0.3s; }
+        .member-card-v2:hover { border-color: var(--accent-cyan); background: rgba(0, 210, 255, 0.02); }
+        .mem-left { display: flex; align-items: center; gap: 14px; }
+        .mem-pic-glow { width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--accent-cyan); box-shadow: 0 0 10px rgba(0,210,255,0.2); padding: 2px; }
+        .mem-pic-glow img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+        .mem-meta h4 { font-family: 'Orbitron', sans-serif; font-size: 13px; color: #fff; letter-spacing: 0.5px; }
+        .mem-meta p { font-size: 9.5px; color: var(--text-muted); margin-top: 2px; font-family: 'Orbitron'; }
+        .mem-exp { font-size: 10.5px; color: var(--accent-green); margin-top: 4px; font-weight: 500; text-transform: capitalize; }
+        .mem-links { display: flex; gap: 6px; }
+        .mem-btn { width: 28px; height: 28px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; text-decoration: none; transition: 0.2s; }
+        .mem-btn:hover { background: var(--accent-cyan); color: #000; border-color: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan); }
 
         /* Dialogue Chat Container */
         .chat-container { display: flex; flex-direction: column; gap: 15px; }
@@ -135,7 +137,7 @@
         <div class="nav-bar">
             <span>EHB_OFC</span>
             <span class="active">SINGAPORE_INFRA</span>
-            <span>HARDWARE</span>
+            <span>OPERATIVES</span>
             <span>CHANNELS</span>
         </div>
 
@@ -231,19 +233,105 @@
 
         <div class="panel">
             <div class="section-header">
-                <span class="section-num">// 05 / HUMAN RESOURCES</span>
-                <h2 class="section-title">EHB Core Hierarchy</h2>
+                <span class="section-num">// 05 / ACTIVE HUMAN RESOURCES</span>
+                <h2 class="section-title">EHB Core Operatives</h2>
             </div>
             <div class="hierarchy-summary">
                 <span style="color: var(--accent-cyan);">👑 CEO: Siam</span>
                 <span style="color: var(--accent-green);">⚡ ADMIN: Samir</span>
                 <span style="color: var(--accent-gold);">🛡️ MOD: Jisan</span>
             </div>
-            <div class="team-grid">
-                <div class="team-member">Ahamed</div><div class="team-member">Ashraf Husain</div><div class="team-member">Endo Prime</div>
-                <div class="team-member">Rabbi</div><div class="team-member">Nexus</div><div class="team-member">Priyonety</div>
-                <div class="team-member">Sakib X7</div><div class="team-member">Sahida Afroj</div><div class="team-member">Daduuuu</div>
-                <div class="team-member">Sabbir</div><div class="team-member">Konok</div><div class="team-member">Ryven Noir</div>
+            
+            <div class="member-panel-box">
+                <div class="member-card-v2">
+                    <div class="mem-left">
+                        <div class="mem-pic-glow"><img src="https://i.ibb.co/b500ff/ryven.jpg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'" alt="Ryven"></div>
+                        <div class="mem-meta">
+                            <h4>ZINISTU RYVEN</h4>
+                            <p>CODE: EHB-BD-2025-R146</p>
+                            <div class="mem-exp"><i class="fas fa-code"></i> Web Dev, TG Bot Developer</div>
+                        </div>
+                    </div>
+                    <div class="mem-links">
+                        <a href="https://t.me/EREN_RYVEN" target="_blank" class="mem-btn"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61586066812002" target="_blank" class="mem-btn"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card-v2">
+                    <div class="mem-left">
+                        <div class="mem-pic-glow"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Anwar"></div>
+                        <div class="mem-meta">
+                            <h4>ANWAR</h4>
+                            <p>CODE: EHB-TEAM-2026-0511R1</p>
+                            <div class="mem-exp"><i class="fas fa-shield-alt"></i> FB Normal Report</div>
+                        </div>
+                    </div>
+                    <div class="mem-links">
+                        <a href="https://t.me/Legion_000" target="_blank" class="mem-btn"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://www.facebook.com/httpACS.Anwar" target="_blank" class="mem-btn"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card-v2">
+                    <div class="mem-left">
+                        <div class="mem-pic-glow"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Sabbir"></div>
+                        <div class="mem-meta">
+                            <h4>MOHAMMAD SABBIR</h4>
+                            <p>CODE: EHB-BD-2025-R121</p>
+                            <div class="mem-exp"><i class="fas fa-gavel"></i> FB Report, Defamation, Legal Removal</div>
+                        </div>
+                    </div>
+                    <div class="mem-links">
+                        <a href="https://t.me/Sabbir_EHB" target="_blank" class="mem-btn"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://www.facebook.com/Mohammadsabbir221" target="_blank" class="mem-btn"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card-v2">
+                    <div class="mem-left">
+                        <div class="mem-pic-glow"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Konok"></div>
+                        <div class="mem-meta">
+                            <h4>KONOK AHMED</h4>
+                            <p>CODE: EHB-BD-2025-0826R</p>
+                            <div class="mem-exp"><i class="fas fa-id-card"></i> File Maker, Manual Report, Imposter</div>
+                        </div>
+                    </div>
+                    <div class="mem-links">
+                        <a href="https://t.me/IKFCX" target="_blank" class="mem-btn"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://www.facebook.com/KNXPRIME" target="_blank" class="mem-btn"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card-v2">
+                    <div class="mem-left">
+                        <div class="mem-pic-glow"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Priyonety"></div>
+                        <div class="mem-meta">
+                            <h4>PRIYONETY CHAKMA</h4>
+                            <p>CODE: PENDING // ACCESS GRANTED</p>
+                            <div class="mem-exp"><i class="fas fa-file-invoice"></i> File Maker & Imposter Handling</div>
+                        </div>
+                    </div>
+                    <div class="mem-links">
+                        <a href="https://t.me/priyonety_chakma" target="_blank" class="mem-btn"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://www.facebook.com/share/18hX1eDNqB/?mibextid=wwXIfr" target="_blank" class="mem-btn"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <div class="member-card-v2" style="border-color: var(--accent-gold); background: rgba(255,170,0,0.02);">
+                    <div class="mem-left">
+                        <div class="mem-pic-glow" style="border-color: var(--accent-gold);"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Samir"></div>
+                        <div class="mem-meta">
+                            <h4 style="color: var(--accent-gold);"><i class="fas fa-crown"></i> SAMIR AHMED</h4>
+                            <p>CODE: EHB-BD-2025-R184</p>
+                            <div class="mem-exp" style="color: var(--accent-gold);"><i class="fas fa-id-card"></i> CARD MAKE & FACEBOOK ELITE</div>
+                        </div>
+                    </div>
+                    <div class="mem-links">
+                        <a href="https://t.me/Samihs1233" target="_blank" class="mem-btn" style="border-color: var(--accent-gold);"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://www.facebook.com/jisan.islam.992510" target="_blank" class="mem-btn" style="border-color: var(--accent-gold);"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -333,7 +421,7 @@
             }
         }
 
-        /* 👑 🚀 SCROLL REVEAL JAVASCRIPT ENGINE 👑 🚀 */
+        /* SCROLL REVEAL ENGINE */
         function scrollReveal() {
             const panels = document.querySelectorAll('.panel');
             const windowHeight = window.innerHeight;
@@ -342,17 +430,14 @@
                 const panelTop = panel.getBoundingClientRect().top;
                 const panelBottom = panel.getBoundingClientRect().bottom;
                 
-                // যদি প্যানেলটি স্ক্রিনের ভেতর দৃশ্যমান হয় (নিচে নামার সময় ভেসে উঠবে)
                 if (panelTop < windowHeight - 50 && panelBottom > 50) {
                     panel.classList.add('reveal-active');
                 } else {
-                    // যদি ইউজার একদম ওপরে চলে যায়, তাহলে আবার আস্তে করে মিশে যাবে
                     panel.classList.remove('reveal-active');
                 }
             });
         }
 
-        // স্ক্রল করার সময় এবং প্রথমবার পেজ লোড হওয়ার সময় ফাংশনটি কাজ করবে
         window.addEventListener('scroll', scrollReveal);
         window.addEventListener('load', scrollReveal);
     </script>
