@@ -41,8 +41,29 @@
         .audio-ctrl-btn { background: transparent; border: 1px solid var(--accent-cyan); color: var(--accent-cyan); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; box-shadow: 0 0 8px rgba(0, 210, 255, 0.2); }
         .audio-ctrl-btn:hover { background: var(--accent-cyan); color: #000; box-shadow: 0 0 15px var(--accent-cyan); }
 
-        /* Modern Cyber Panels */
-        .panel { background: var(--panel-bg); border: 1px solid rgba(0, 210, 255, 0.2); border-radius: 16px; padding: 22px; box-shadow: 0 0 25px rgba(0, 210, 255, 0.05), inset 0 0 15px rgba(0, 210, 255, 0.05); backdrop-filter: blur(10px); transition: 0.3s; }
+        /* 👑 🚀 SCROLL REVEAL ANIMATION SYSTEM CSS 👑 🚀 */
+        .panel { 
+            background: var(--panel-bg); 
+            border: 1px solid rgba(0, 210, 255, 0.2); 
+            border-radius: 16px; 
+            padding: 22px; 
+            box-shadow: 0 0 25px rgba(0, 210, 255, 0.05), inset 0 0 15px rgba(0, 210, 255, 0.05); 
+            backdrop-filter: blur(10px); 
+            
+            /* প্রাথমিক অবস্থা: নিচে থাকবে এবং অদৃশ্য থাকবে */
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            visibility: hidden;
+        }
+
+        /* যখন স্ক্রল করে নিচে যাবে, তখন এই ক্লাসটি যুক্ত হবে */
+        .panel.reveal-active { 
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+
         .panel:hover { border-color: var(--accent-cyan); box-shadow: 0 0 30px rgba(0, 210, 255, 0.15); }
         .panel.green-edge { border-color: rgba(0, 255, 150, 0.25); }
         .panel.green-edge:hover { box-shadow: 0 0 30px rgba(0, 255, 150, 0.15); }
@@ -53,7 +74,7 @@
         .section-num { font-family: 'Orbitron', sans-serif; font-size: 10px; color: var(--text-muted); letter-spacing: 3px; display: block; margin-bottom: 4px; }
         .section-title { font-family: 'Orbitron', sans-serif; font-size: 18px; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
 
-        /* Profile Elements with Auto-Lighting Profile Circle */
+        /* Profile Elements */
         .profile-grid { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; margin-bottom: 20px; position: relative; }
         .avatar-glow { width: 115px; height: 115px; border-radius: 50%; padding: 4px; background: linear-gradient(45deg, var(--accent-cyan), #0066ff); box-shadow: 0 0 25px rgba(0, 210, 255, 0.5); position: relative; }
         .avatar-glow img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; background: #000; }
@@ -311,6 +332,29 @@
                 audioIcon.style.animation = 'none';
             }
         }
+
+        /* 👑 🚀 SCROLL REVEAL JAVASCRIPT ENGINE 👑 🚀 */
+        function scrollReveal() {
+            const panels = document.querySelectorAll('.panel');
+            const windowHeight = window.innerHeight;
+            
+            panels.forEach(panel => {
+                const panelTop = panel.getBoundingClientRect().top;
+                const panelBottom = panel.getBoundingClientRect().bottom;
+                
+                // যদি প্যানেলটি স্ক্রিনের ভেতর দৃশ্যমান হয় (নিচে নামার সময় ভেসে উঠবে)
+                if (panelTop < windowHeight - 50 && panelBottom > 50) {
+                    panel.classList.add('reveal-active');
+                } else {
+                    // যদি ইউজার একদম ওপরে চলে যায়, তাহলে আবার আস্তে করে মিশে যাবে
+                    panel.classList.remove('reveal-active');
+                }
+            });
+        }
+
+        // স্ক্রল করার সময় এবং প্রথমবার পেজ লোড হওয়ার সময় ফাংশনটি কাজ করবে
+        window.addEventListener('scroll', scrollReveal);
+        window.addEventListener('load', scrollReveal);
     </script>
 </body>
 </html>
