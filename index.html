@@ -31,6 +31,16 @@
         .nav-bar { display: flex; justify-content: space-between; align-items: center; font-family: 'Orbitron', sans-serif; font-size: 11px; letter-spacing: 1px; color: var(--text-muted); border-bottom: 1px solid rgba(0, 210, 255, 0.1); padding-bottom: 10px; }
         .nav-bar span.active { color: var(--accent-cyan); text-shadow: 0 0 12px var(--accent-cyan); }
 
+        /* Cyber Audio Core Panel */
+        .audio-panel { display: flex; align-items: center; justify-content: space-between; background: rgba(0, 210, 255, 0.03); border: 1px solid rgba(0, 210, 255, 0.25); box-shadow: 0 0 15px rgba(0, 210, 255, 0.1); border-radius: 12px; padding: 12px 20px; margin-top: -5px; }
+        .audio-info { display: flex; align-items: center; gap: 12px; }
+        .audio-icon-glow { color: var(--accent-cyan); font-size: 16px; animation: spin 4s linear infinite; text-shadow: 0 0 8px var(--accent-cyan); }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        .audio-title { font-family: 'Orbitron', sans-serif; font-size: 11px; letter-spacing: 1.5px; color: #fff; }
+        .audio-title span { display: block; font-size: 9px; color: var(--text-muted); font-family: 'Inter'; margin-top: 2px; }
+        .audio-ctrl-btn { background: transparent; border: 1px solid var(--accent-cyan); color: var(--accent-cyan); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; box-shadow: 0 0 8px rgba(0, 210, 255, 0.2); }
+        .audio-ctrl-btn:hover { background: var(--accent-cyan); color: #000; box-shadow: 0 0 15px var(--accent-cyan); }
+
         /* Modern Cyber Panels */
         .panel { background: var(--panel-bg); border: 1px solid rgba(0, 210, 255, 0.2); border-radius: 16px; padding: 22px; box-shadow: 0 0 25px rgba(0, 210, 255, 0.05), inset 0 0 15px rgba(0, 210, 255, 0.05); backdrop-filter: blur(10px); transition: 0.3s; }
         .panel:hover { border-color: var(--accent-cyan); box-shadow: 0 0 30px rgba(0, 210, 255, 0.15); }
@@ -108,6 +118,23 @@
             <span>CHANNELS</span>
         </div>
 
+        <div class="audio-panel">
+            <div class="audio-info">
+                <i class="fas fa-compact-disc audio-icon-glow" id="audio-icon"></i>
+                <div class="audio-title">
+                    EHB AUDIO CORE V2
+                    <span id="audio-status">STATUS: STANDBY // CLICK PLAY</span>
+                </div>
+            </div>
+            <button class="audio-ctrl-btn" id="play-btn" onclick="toggleAudio()">
+                <i class="fas fa-play" id="play-icon"></i>
+            </button>
+        </div>
+
+        <audio id="cyber-audio" loop>
+            <source src="https://files.catbox.moe/m40u6q.mp3" type="audio/mpeg">
+        </audio>
+
         <div class="panel">
             <div class="section-header">
                 <span class="section-num">// 01 / PROFILE INTERFACE</span>
@@ -157,7 +184,7 @@
                 <h2 class="section-title">Expert Terminations</h2>
             </div>
             <ul class="matrix-list" style="margin-bottom: 25px;">
-                <li>export system<strong>Cyber Operations:</strong> <span>Bullying Protection & Monitoring 🛡️</span></li>
+                <li><strong>Cyber Operations:</strong> <span>Bullying Protection & Monitoring 🛡️</span></li>
                 <li><strong>Account Disabling:</strong> <span>Imposter & Fake Account Cleanup 👤✖️</span></li>
                 <li><strong>Server-Side Fixes:</strong> <span>Meta / WhatsApp / Gmail Recovery 📧</span></li>
                 <li><strong>Policy Standard:</strong> <span>100% Anonymous Logs Deletion ♻️</span></li>
@@ -261,6 +288,29 @@
             });
         }
         setInterval(draw, 50);
+
+        // Cyber Audio Engine Controller Script
+        const audio = document.getElementById('cyber-audio');
+        const playBtn = document.getElementById('play-btn');
+        const playIcon = document.getElementById('play-icon');
+        const audioStatus = document.getElementById('audio-status');
+        const audioIcon = document.getElementById('audio-icon');
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                playIcon.className = 'fas fa-pause';
+                audioStatus.innerText = 'STATUS: PLAYING // SYSTEM MATRIX LIVE';
+                audioStatus.style.color = '#00ff96';
+                audioIcon.style.animation = 'spin 1.5s linear infinite';
+            } else {
+                audio.pause();
+                playIcon.className = 'fas fa-play';
+                audioStatus.innerText = 'STATUS: PAUSED // SYSTEM ON STANDBY';
+                audioStatus.style.color = '#64748b';
+                audioIcon.style.animation = 'none';
+            }
+        }
     </script>
 </body>
 </html>
