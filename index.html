@@ -37,7 +37,7 @@
         .audio-icon-glow { color: var(--accent-cyan); font-size: 16px; animation: spin 4s linear infinite; text-shadow: 0 0 8px var(--accent-cyan); }
         @keyframes spin { 100% { transform: rotate(360deg); } }
         .audio-title { font-family: 'Orbitron', sans-serif; font-size: 11px; letter-spacing: 1.5px; color: #fff; }
-        .audio-title span { display: block; font-size: 9px; color: var(--text-muted); font-family: 'Inter'; margin-top: 2px; }
+        .audio-title span { block; font-size: 9px; color: var(--text-muted); font-family: 'Inter'; margin-top: 2px; }
         .audio-ctrl-btn { background: transparent; border: 1px solid var(--accent-cyan); color: var(--accent-cyan); width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: 0.3s; box-shadow: 0 0 8px rgba(0, 210, 255, 0.2); }
         .audio-ctrl-btn:hover { background: var(--accent-cyan); color: #000; box-shadow: 0 0 15px var(--accent-cyan); }
 
@@ -108,17 +108,6 @@
         .mem-btn { width: 28px; height: 28px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.02); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 11px; text-decoration: none; transition: 0.2s; }
         .mem-btn:hover { background: var(--accent-cyan); color: #000; border-color: var(--accent-cyan); box-shadow: 0 0 8px var(--accent-cyan); }
 
-        /* Dialogue Chat Container */
-        .chat-container { display: flex; flex-direction: column; gap: 15px; }
-        .chat-row { display: flex; flex-direction: column; max-width: 95%; }
-        .chat-row.host { align-self: flex-start; }
-        .chat-row.siam { align-self: flex-end; text-align: right; }
-        .chat-label { font-size: 10px; font-family: 'Orbitron', sans-serif; font-weight: bold; margin-bottom: 4px; letter-spacing: 1px; }
-        .chat-row.host .chat-label { color: var(--accent-green); }
-        .chat-row.siam .chat-label { color: var(--accent-red); }
-        .chat-bubble { background: #07162c; border: 1px solid rgba(0, 255, 150, 0.15); padding: 12px 15px; border-radius: 0 12px 12px 12px; font-size: 13px; color: #e2e8f0; line-height: 1.5; text-align: left; }
-        .chat-row.siam .chat-bubble { background: rgba(255, 51, 102, 0.05); border-color: rgba(255, 51, 102, 0.2); border-radius: 12px 0 12px 12px; }
-
         /* Action Grid Contact System */
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
         .contact-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: rgba(0, 210, 255, 0.04); border: 1px solid rgba(0, 210, 255, 0.2); color: #fff; padding: 12px; border-radius: 8px; font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 1px; text-decoration: none; transition: 0.3s; }
@@ -141,6 +130,7 @@
             <span>CHOWDHURY</span>
         </div>
 
+        <!-- CYBER AUDIO CORE PANEL WIDGET -->
         <div class="audio-panel">
             <div class="audio-info">
                 <i class="fas fa-compact-disc audio-icon-glow" id="audio-icon"></i>
@@ -154,10 +144,12 @@
             </button>
         </div>
 
+        <!-- AUDIO SOURCE -->
         <audio id="cyber-audio" loop>
             <source src="https://files.catbox.moe/m40u6q.mp3" type="audio/mpeg">
         </audio>
 
+        <!-- IDENTITY MATRIX -->
         <div class="panel">
             <div class="section-header">
                 <span class="section-num">// 01 / PROFILE</span>
@@ -175,10 +167,11 @@
                 <li><strong>NICKNAME:</strong> <span>ASIF CHOWDHURY</span></li>
                 <li><strong>STATUS:</strong> <span>STUDENT | PURE SINGLE</span></li>
                 <li><strong>AVAILABILITY:</strong> <span>AROUND 20 HOURS ONLINE</span></li>
-                <li><strong>ADDRESS:</strong> <span style="color:var(--accent-cyan);">NORTH WEST,REGION SINGAPORE</span></li>
+                <li><strong>ADDRESS:</strong> <span style="color:var(--accent-cyan);">NORTH WEST, REGION SINGAPORE</span></li>
             </ul>
         </div>
 
+        <!-- RIG CONFIGURATION -->
         <div class="panel">
             <div class="section-header">
                 <span class="section-num">// 02 / RIG CONFIGURATION</span>
@@ -189,8 +182,8 @@
                 <div class="hw-item"><i class="fas fa-mobile-alt"></i> IPHONE 14</div>
                 <div class="hw-item"><i class="fas fa-mobile-alt"></i> IPHONE 15</div>
                 <div class="hw-item"><i class="fas fa-mobile-alt"></i> IPHONE X</div>
-                <div class="hw-item"><i class="fas fa-mobile-alt"></i> SAMSUNG S24 Ultra</div>
-                <div class="hw-item"><i class="fas fa-mobile-alt"></i> SAMSUNG S26 Ultra</div>
+                <div class="hw-item"><i class="fas fa-mobile-alt"></i> SAMSUNG S24 ULTRA</div>
+                <div class="hw-item"><i class="fas fa-mobile-alt"></i> SAMSUNG S26 ULTRA</div>
                 <div class="hw-item"><i class="fas fa-mobile-alt"></i> REALME C71</div>
                 <div class="hw-item"><i class="fas fa-mobile-alt"></i> REALME C33</div>
                 <div class="hw-item"><i class="fas fa-mobile-alt"></i> POCO C37</div>
@@ -201,14 +194,15 @@
             </ul>
         </div>
 
+        <!-- WORKS & CAPABILITIES -->
         <div class="panel green-edge">
             <div class="section-header">
                 <span class="section-num" style="color:var(--accent-green);">// 03 / WORKS</span>
-                <h2 class="section-title"> WHAT DO YOU GET TO ME?</h2>
+                <h2 class="section-title">WHAT DO YOU GET TO ME?</h2>
             </div>
             <ul class="matrix-list" style="margin-bottom: 25px;">
-                <li><strong>EXPERT?:</strong> <span>WP/INSTAGRAM/TIKTOK/TELIGRAM/IMO/GMAIL/FACEBOOK/DEVLOPER/BOT MAKER/API MAKER/TWITTER/SNAPCHAT/PIN</span></li>
-                <li><strong>WHAT TO GET FOR FREE:</strong> <span>SUSPENDED BACK/HARASSMENT ANY CASE️</span></li>
+                <li><strong>EXPERT?:</strong> <span>WP/INSTAGRAM/TIKTOK/TELEGRAM/IMO/GMAIL/FACEBOOK/DEVELOPER/BOT MAKER/API MAKER/TWITTER/SNAPCHAT/PIN</span></li>
+                <li><strong>WHAT TO GET FOR FREE:</strong> <span>SUSPENDED BACK/HARASSMENT ANY CASE</span></li>
                 <li><strong>PAID SIDE:</strong> <span>ANY METHOD & FILE</span></li>
                 <li><strong>JOIN TEAM?:</strong> <span>30 SPACE</span></li>
             </ul>
@@ -231,21 +225,23 @@
             <p style="font-size:11px; text-align:center; color:var(--text-muted); margin-top:12px; font-family:'Orbitron';">TECH: PYTHON | PHP | JAVA | REACT.JS</p>
         </div>
 
+        <!-- TEAM MEMBERS SECTION -->
         <div class="panel">
             <div class="section-header">
                 <span class="section-num">// 05 / THE TEAM</span>
-                <h2 class="section-title">SOME MAMBERS</h2>
+                <h2 class="section-title">SOME MEMBERS</h2>
             </div>
             <div class="hierarchy-summary">
                 <span style="color: var(--accent-cyan);">👑 THE FOUNDER: ASIF/SIAM</span>
                 <span style="color: var(--accent-green);">⚡ ADMIN: SAMIR</span>
-                <span style="color: var(--accent-gold);">🛡️ MODARETOR: JISAN</span>
+                <span style="color: var(--accent-gold);">🛡️ MODERATOR: JISAN</span>
             </div>
             
             <div class="member-panel-box">
+                <!-- Member 1 -->
                 <div class="member-card-v2">
                     <div class="mem-left">
-                        <div class="mem-pic-glow"><img src="https://i.ibb.co/b500ff/ryven.jpg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'" alt="Ryven"></div>
+                        <div class="mem-pic-glow"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Ryven"></div>
                         <div class="mem-meta">
                             <h4>ZINISTU RYVEN</h4>
                             <p>CODE: EHB-BD-2025-R146</p>
@@ -258,6 +254,7 @@
                     </div>
                 </div>
 
+                <!-- Member 2 -->
                 <div class="member-card-v2">
                     <div class="mem-left">
                         <div class="mem-pic-glow"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Anwar"></div>
@@ -273,6 +270,7 @@
                     </div>
                 </div>
 
+                <!-- Member 3 -->
                 <div class="member-card-v2">
                     <div class="mem-left">
                         <div class="mem-pic-glow"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Sabbir"></div>
@@ -288,9 +286,136 @@
                     </div>
                 </div>
 
+                <!-- Member 4 -->
                 <div class="member-card-v2">
                     <div class="mem-left">
                         <div class="mem-pic-glow"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Konok"></div>
                         <div class="mem-meta">
-                             <h4>KONOK AHMED</h4>
-                            <p>CODE: EHB-B
+                            <h4>KONOK AHMED</h4>
+                            <p>CODE: EHB-BD-2025-0826R</p>
+                            <div class="mem-exp"><i class="fas fa-id-card"></i> File Maker, Manual Report, Imposter, Legal</div>
+                        </div>
+                    </div>
+                    <div class="mem-links">
+                        <a href="https://t.me/IKFCX" target="_blank" class="mem-btn"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://www.facebook.com/KNXPRIME" target="_blank" class="mem-btn"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Member 5 -->
+                <div class="member-card-v2">
+                    <div class="mem-left">
+                        <div class="mem-pic-glow"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Priyonety"></div>
+                        <div class="mem-meta">
+                            <h4>PRIYONETY CHAKMA</h4>
+                            <p>CODE: PENDING // ACCESS GRANTED</p>
+                            <div class="mem-exp"><i class="fas fa-file-invoice"></i> File Maker & Imposter Handling</div>
+                        </div>
+                    </div>
+                    <div class="mem-links">
+                        <a href="https://t.me/priyonety_chakma" target="_blank" class="mem-btn"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://www.facebook.com/share/18hX1eDNqB/?mibextid=wwXIfr" target="_blank" class="mem-btn"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Member 11 (Admin Samir) -->
+                <div class="member-card-v2" style="border-color: var(--accent-gold); background: rgba(255,170,0,0.02);">
+                    <div class="mem-left">
+                        <div class="mem-pic-glow" style="border-color: var(--accent-gold);"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Samir"></div>
+                        <div class="mem-meta">
+                            <h4 style="color: var(--accent-gold);"><i class="fas fa-crown"></i> SAMIR AHMED</h4>
+                            <p>CODE: EHB-BD-2025-R184</p>
+                            <div class="mem-exp" style="color: var(--accent-gold);"><i class="fas fa-id-card"></i> CARD MAKE & FACEBOOK ELITE</div>
+                        </div>
+                    </div>
+                    <div class="mem-links">
+                        <a href="https://t.me/Samihs1233" target="_blank" class="mem-btn" style="border-color: var(--accent-gold);"><i class="fab fa-telegram-plane"></i></a>
+                        <a href="https://www.facebook.com/jisan.islam.992510" target="_blank" class="mem-btn" style="border-color: var(--accent-gold);"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COMMUNICATIONS GRID -->
+        <div class="panel">
+            <div class="section-header">
+                <span class="section-num">// 06 / ACTION GRID</span>
+                <h2 class="section-title">Secure Communications</h2>
+            </div>
+            <div class="contact-grid">
+                <a href="https://t.me/shiam407" target="_blank" class="contact-btn tg"><i class="fab fa-telegram-plane"></i> TELEGRAM</a>
+                <a href="https://wa.me/8801816731602" target="_blank" class="contact-btn"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
+            </div>
+            <footer style="margin-top: 20px;">
+                <span>EHB_OFC &copy; 2026</span>
+                <span style="color: var(--accent-cyan); font-size: 9px; text-shadow:0 0 5px var(--accent-cyan);">In Memory of Osman Hadi Vai</span>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Matrix Background Effect
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+        const letters = "0101EHB_SINGAPORE_HQ_⚡_CYBER_MATRIX_NODE_2026";
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array.from({ length: columns }).fill(1);
+
+        function draw() {
+            ctx.fillStyle = 'rgba(2, 6, 18, 0.06)'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00d2ff'; ctx.font = fontSize + 'px monospace';
+            drops.forEach((y, i) => {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, y * fontSize);
+                if (y * fontSize > canvas.height && Math.random() > 0.98) drops[i] = 0;
+                drops[i]++;
+            });
+        }
+        setInterval(draw, 50);
+
+        // Audio Handler
+        const audio = document.getElementById('cyber-audio');
+        const playBtn = document.getElementById('play-btn');
+        const playIcon = document.getElementById('play-icon');
+        const audioStatus = document.getElementById('audio-status');
+        const audioIcon = document.getElementById('audio-icon');
+
+        function toggleAudio() {
+            if (audio.paused) {
+                audio.play();
+                playIcon.className = 'fas fa-pause';
+                audioStatus.innerText = 'STATUS: PLAYING // SYSTEM MATRIX LIVE';
+                audioStatus.style.color = '#00ff96';
+                audioIcon.style.animation = 'spin 1.5s linear infinite';
+            } else {
+                audio.pause();
+                playIcon.className = 'fas fa-play';
+                audioStatus.innerText = 'STATUS: PAUSED // SYSTEM ON STANDBY';
+                audioStatus.style.color = '#64748b';
+                audioIcon.style.animation = 'none';
+            }
+        }
+
+        // Scroll Reveal System Script
+        function scrollReveal() {
+            const panels = document.querySelectorAll('.panel');
+            const windowHeight = window.innerHeight;
+            
+            panels.forEach(panel => {
+                const panelTop = panel.getBoundingClientRect().top;
+                const panelBottom = panel.getBoundingClientRect().bottom;
+                
+                if (panelTop < windowHeight - 50 && panelBottom > 50) {
+                    panel.classList.add('reveal-active');
+                } else {
+                    panel.classList.remove('reveal-active');
+                }
+            });
+        }
+        window.addEventListener('scroll', scrollReveal);
+        window.addEventListener('load', scrollReveal);
+    </script>
+</body>
+</html>
