@@ -79,8 +79,9 @@
 
         /* Matrix Lists Grid styling */
         .matrix-list { list-style: none; font-size: 13px; line-height: 1.8; }
-        .matrix-list li { margin-bottom: 8px; color: #cbd5e1; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.03); padding-bottom: 6px; align-items: center; }
-        .matrix-list strong { color: var(--accent-cyan); font-family: 'Orbitron', sans-serif; font-size: 11px; letter-spacing: 0.5px; }
+        .matrix-list li { margin-bottom: 8px; color: #cbd5e1; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.03); padding-bottom: 6px; align-items: center; word-break: break-word; }
+        .matrix-list strong { color: var(--accent-cyan); font-family: 'Orbitron', sans-serif; font-size: 11px; letter-spacing: 0.5px; flex-shrink: 0; margin-right: 15px; }
+        .matrix-list span { text-align: right; }
 
         /* Hardware Scroll Badge/Grid */
         .hardware-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
@@ -120,7 +121,7 @@
         .chat-row.siam .chat-bubble { background: rgba(255, 51, 102, 0.05); border-color: rgba(255, 51, 102, 0.2); border-radius: 12px 0 12px 12px; }
 
         /* Action Grid Contact System */
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px; }
         .contact-btn { display: flex; align-items: center; justify-content: center; gap: 10px; background: rgba(0, 210, 255, 0.04); border: 1px solid rgba(0, 210, 255, 0.2); color: #fff; padding: 12px; border-radius: 8px; font-family: 'Orbitron', sans-serif; font-size: 11px; font-weight: bold; letter-spacing: 1px; text-decoration: none; transition: 0.3s; }
         .contact-btn:hover { background: var(--accent-cyan); color: #000; border-color: var(--accent-cyan); box-shadow: 0 0 15px var(--accent-cyan); transform: translateY(-2px); }
         .contact-btn.tg { border-color: rgba(0, 132, 255, 0.3); }
@@ -175,7 +176,7 @@
                 <li><strong>NICKNAME:</strong> <span>ASIF CHOWDHURY</span></li>
                 <li><strong>STATUS:</strong> <span>STUDENT | PURE SINGLE</span></li>
                 <li><strong>AVAILABILITY:</strong> <span>AROUND 20 HOURS ONLINE</span></li>
-                <li><strong>ADDRESS:</strong> <span style="color:var(--accent-cyan);">NORTH WEST,REGION SINGAPORE</span></li>
+                <li><strong>ADDRESS:</strong> <span style="color:var(--accent-cyan);">NORTH WEST, REGION SINGAPORE</span></li>
             </ul>
         </div>
 
@@ -189,8 +190,8 @@
                 <div class="hw-item"><i class="fas fa-mobile-alt"></i> IPHONE 14</div>
                 <div class="hw-item"><i class="fas fa-mobile-alt"></i> IPHONE 15</div>
                 <div class="hw-item"><i class="fas fa-mobile-alt"></i> IPHONE X</div>
-                <div class="hw-item"><i class="fas fa-mobile-alt"></i> SAMSUNG S24 Ultra</div>
-                <div class="hw-item"><i class="fas fa-mobile-alt"></i> SAMSUNG S26 Ultra</div>
+                <div class="hw-item"><i class="fas fa-mobile-alt"></i> SAMSUNG S24 ULTRA</div>
+                <div class="hw-item"><i class="fas fa-mobile-alt"></i> SAMSUNG S26 ULTRA</div>
                 <div class="hw-item"><i class="fas fa-mobile-alt"></i> REALME C71</div>
                 <div class="hw-item"><i class="fas fa-mobile-alt"></i> REALME C33</div>
                 <div class="hw-item"><i class="fas fa-mobile-alt"></i> POCO C37</div>
@@ -204,11 +205,11 @@
         <div class="panel green-edge">
             <div class="section-header">
                 <span class="section-num" style="color:var(--accent-green);">// 03 / WORKS</span>
-                <h2 class="section-title"> WHAT DO YOU GET TO ME?</h2>
+                <h2 class="section-title">WHAT DO YOU GET TO ME?</h2>
             </div>
             <ul class="matrix-list" style="margin-bottom: 25px;">
-                <li><strong>EXPERT?:</strong> <span>WP/INSTAGRAM/TIKTOK/TELIGRAM/IMO/GMAIL/FACEBOOK/DEVLOPER/BOT MAKER/API MAKER/TWITTER/SNAPCHAT/PIN</span></li>
-                <li><strong>WHAT TO GET FOR FREE:</strong> <span>SUSPENDED BACK/HARASSMENT ANY CASE️</span></li>
+                <li><strong>EXPERT?:</strong> <span>WP / INSTAGRAM / TIKTOK / TELEGRAM / IMO / GMAIL / FACEBOOK / DEVELOPER / BOT MAKER / API MAKER / TWITTER / SNAPCHAT / PIN</span></li>
+                <li><strong>WHAT TO GET FOR FREE:</strong> <span>SUSPENDED BACK / HARASSMENT ANY CASE</span></li>
                 <li><strong>PAID SIDE:</strong> <span>ANY METHOD & FILE</span></li>
                 <li><strong>JOIN TEAM?:</strong> <span>30 SPACE</span></li>
             </ul>
@@ -234,15 +235,16 @@
         <div class="panel">
             <div class="section-header">
                 <span class="section-num">// 05 / THE TEAM</span>
-                <h2 class="section-title">SOME MAMBERS</h2>
+                <h2 class="section-title">SOME MEMBERS</h2>
             </div>
             <div class="hierarchy-summary">
                 <span style="color: var(--accent-cyan);">👑 THE FOUNDER: ASIF/SIAM</span>
                 <span style="color: var(--accent-green);">⚡ ADMIN: SAMIR</span>
-                <span style="color: var(--accent-gold);">🛡️ MODARETOR: JISAN</span>
+                <span style="color: var(--accent-gold);">🛡️ MODERATOR: JISAN</span>
             </div>
             
             <div class="member-panel-box">
+                <!-- Member 1 -->
                 <div class="member-card-v2">
                     <div class="mem-left">
                         <div class="mem-pic-glow"><img src="https://i.ibb.co/b500ff/ryven.jpg" onerror="this.src='https://cdn-icons-png.flaticon.com/512/3135/3135715.png'" alt="Ryven"></div>
@@ -258,6 +260,7 @@
                     </div>
                 </div>
 
+                <!-- Member 2 -->
                 <div class="member-card-v2">
                     <div class="mem-left">
                         <div class="mem-pic-glow"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Anwar"></div>
@@ -273,6 +276,7 @@
                     </div>
                 </div>
 
+                <!-- Member 3 -->
                 <div class="member-card-v2">
                     <div class="mem-left">
                         <div class="mem-pic-glow"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Sabbir"></div>
@@ -288,13 +292,14 @@
                     </div>
                 </div>
 
+                <!-- Member 4 -->
                 <div class="member-card-v2">
                     <div class="mem-left">
                         <div class="mem-pic-glow"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Konok"></div>
                         <div class="mem-meta">
-                             <h4>KONOK AHMED</h4>
+                            <h4>KONOK AHMED</h4>
                             <p>CODE: EHB-BD-2025-0826R</p>
-                            <div class="mem-exp"><i class="fas fa-id-card"></i> File Maker, Manual Report, Imposter</div>
+                            <div class="mem-exp"><i class="fas fa-id-card"></i> File Maker, Manual Report, Imposter, Legal</div>
                         </div>
                     </div>
                     <div class="mem-links">
@@ -303,6 +308,7 @@
                     </div>
                 </div>
 
+                <!-- Member 5 -->
                 <div class="member-card-v2">
                     <div class="mem-left">
                         <div class="mem-pic-glow"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Priyonety"></div>
@@ -318,6 +324,7 @@
                     </div>
                 </div>
 
+                <!-- Member 11 (Admin Samir) -->
                 <div class="member-card-v2" style="border-color: var(--accent-gold); background: rgba(255,170,0,0.02);">
                     <div class="mem-left">
                         <div class="mem-pic-glow" style="border-color: var(--accent-gold);"><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Samir"></div>
@@ -335,6 +342,7 @@
             </div>
         </div>
 
+        <!-- INTERROGATION LIVE BOX -->
         <div class="panel red-edge">
             <div class="section-header">
                 <span class="section-num" style="color:var(--accent-red);">// 06 / SECURE LOG SESSION</span>
@@ -347,7 +355,7 @@
                 </div>
                 <div class="chat-row siam">
                     <span class="chat-label">⚡ SIAM HOSSAIN JIDAN // FOUNDER & CEO</span>
-                    <div class="chat-bubble">My birth was straight away<strong> (Singapore)</strong> And now permanently settled there with my family. My father is the dealer of the biggest Lamborghini showroom there. Im controlling the entire EHB remote server from the North West Singapore Command Center. Relationship Status: Completely single</div>
+                    <div class="chat-bubble">My birth was straight away <strong>(Singapore)</strong> and now permanently settled there with my family. My father is the dealer of the biggest Lamborghini showroom there. I'm controlling the entire EHB remote server from the North West Singapore Command Center. Relationship Status: Completely single</div>
                 </div>
                 <div class="chat-row host">
                     <span class="chat-label">👤 HOST // AUDITOR</span>
@@ -355,30 +363,31 @@
                 </div>
                 <div class="chat-row siam">
                     <span class="chat-label">⚡ SIAM HOSSAIN JIDAN // SAVAGE REPLY</span>
-                    <div class="chat-bubble">From my custom bot engineering, script development and family background, the economic graph is so high that it is beyond the reach of the average person. To put it <strong>bluntly, no one in the world has the ability to complete the amount of assets or funding sources that are active in our backend! </strong> Nothing compares to our level</div>
+                    <div class="chat-bubble">From my custom bot engineering, script development and family background, the economic graph is so high that it is beyond the reach of the average person. To put it <strong>bluntly, no one in the world has the ability to complete the amount of assets or funding sources that are active in our backend!</strong> Nothing compares to our level</div>
                 </div>
             </div>
         </div>
 
+        <!-- COMMUNICATIONS GRID -->
         <div class="panel">
             <div class="section-header">
                 <span class="section-num">// 07 / ACTION GRID</span>
-                <h2 class="section-title"CONNECT US</h2>
+                <h2 class="section-title">CONNECT US</h2>
             </div>
             <div class="contact-grid">
                 <a href="https://t.me/shiam407" target="_blank" class="contact-btn tg"><i class="fab fa-telegram-plane"></i> TELEGRAM</a>
                 <a href="https://wa.me/8801816731602" target="_blank" class="contact-btn"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
-                <a href="https://t.me/ethicalhackerbdofc" target="_blank" class="contact-btn"><i class="fab fa-whatsapp"></i> CHANNEL</a>
+                <a href="https://t.me/ethicalhackerbdofc" target="_blank" class="contact-btn tg"><i class="fab fa-telegram-plane"></i> CHANNEL</a>
             </div>
             <footer style="margin-top: 20px;">
                 <span>EHB_OFC &copy; 2026</span>
-                <span style="color: var(--accent-cyan); font-size: 9px; text-shadow:0 0 5px var(--accent-cyan);"> I DONT CARE WHO THE FUCK YOU ARE</span>
+                <span style="color: var(--accent-cyan); font-size: 9px; text-shadow:0 0 5px var(--accent-cyan);">I DONT CARE WHO THE FUCK YOU ARE</span>
             </footer>
         </div>
     </div>
 
     <script>
-        // Lightning Neon Glow Vector Background Animation
+        // Matrix Background Effect
         const canvas = document.getElementById('bg-canvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
@@ -399,7 +408,7 @@
         }
         setInterval(draw, 50);
 
-        // Cyber Audio Engine Controller Script
+        // Audio Handler
         const audio = document.getElementById('cyber-audio');
         const playBtn = document.getElementById('play-btn');
         const playIcon = document.getElementById('play-icon');
@@ -410,19 +419,19 @@
             if (audio.paused) {
                 audio.play();
                 playIcon.className = 'fas fa-pause';
-                audioStatus.innerText = 'TAP';
+                audioStatus.innerText = 'STATUS: PLAYING // SYSTEM MATRIX LIVE';
                 audioStatus.style.color = '#00ff96';
                 audioIcon.style.animation = 'spin 1.5s linear infinite';
             } else {
                 audio.pause();
                 playIcon.className = 'fas fa-play';
-                audioStatus.innerText = 'TAP';
+                audioStatus.innerText = 'STATUS: PAUSED // SYSTEM ON STANDBY';
                 audioStatus.style.color = '#64748b';
                 audioIcon.style.animation = 'none';
             }
         }
 
-        /* SCROLL REVEAL ENGINE */
+        // Scroll Reveal System Script
         function scrollReveal() {
             const panels = document.querySelectorAll('.panel');
             const windowHeight = window.innerHeight;
@@ -438,9 +447,8 @@
                 }
             });
         }
-
         window.addEventListener('scroll', scrollReveal);
         window.addEventListener('load', scrollReveal);
     </script>
 </body>
-</html>                 
+</html>
